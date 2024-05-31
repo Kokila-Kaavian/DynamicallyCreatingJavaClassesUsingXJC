@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+<xs:element name="Form">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="DeliveryHdrNode">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Deliveryheadergrossvolume" type="xs:float"/>
+<xs:element name="Deliveryheadergrossvolumeunit" type="xs:string"/>
+<xs:element name="Deliveryheadergrossweight" type="xs:float"/>
+<xs:element name="Deliveryheadergrossweightunit" type="xs:string"/>
+<xs:element name="Deliveryheadernetvolume" type="xs:float"/>
+<xs:element name="Deliveryheadernetvolumeunit" type="xs:string"/>
+<xs:element name="Deliveryheadernetweight" type="xs:float"/>
+<xs:element name="Deliveryheadernetweightunit" type="xs:string"/>
+<xs:element name="Outbounddeliveryorder" type="xs:string"/>
+<xs:element name="Shiptopartyaddressline1text" type="xs:string"/>
+<xs:element name="Shiptopartyaddressline2text" type="xs:string"/>
+<xs:element name="Shiptopartyaddressline3text" type="xs:string"/>
+<xs:element name="Shiptopartyaddressline4text" type="xs:string"/>
+<xs:element name="Wrhstmzncreationdate" type="xs:date"/>
+<xs:element name="Wrhstmzncreationtime" type="xs:string"/>
+<xs:element name="Wrhstmznlistprintdate" type="xs:date"/>
+<xs:element name="Wrhstmznlistprinttime" type="xs:string"/>
+<xs:element name="Wrhstmznplnddelivstartdate" type="xs:date"/>
+<xs:element name="Wrhstmznplnddelivstarttime" type="xs:string"/>
+<xs:element name="DeliveryItem">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="DeliveryItemNode">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Deliveryitemgrossvolume" type="xs:float"/>
+<xs:element name="Deliveryitemgrossvolumeunit" type="xs:string"/>
+<xs:element name="Deliveryitemgrossweight" type="xs:float"/>
+<xs:element name="Deliveryitemgrossweightunit" type="xs:string"/>
+<xs:element name="Product" type="xs:string"/>
+<xs:element name="Productbatch" type="xs:string"/>
+<xs:element name="Productdescription" type="xs:string"/>
+<xs:element name="Productquantity" type="xs:float"/>
+<xs:element name="Quantityunit" type="xs:string"/>
+<xs:element name="Storagebin" type="xs:string"/>
+ </xs:sequence>
+</xs:complexType>
+</xs:element>
+ </xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="HandlingUnit">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="HandlingUnitNode">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Grossvolume" type="xs:float"/>
+<xs:element name="Grossweight" type="xs:float"/>
+<xs:element name="Handlingunitheight" type="xs:float"/>
+<xs:element name="Handlingunitlength" type="xs:float"/>
+<xs:element name="Handlingunitnumber" type="xs:string"/>
+<xs:element name="Handlingunitwidth" type="xs:float"/>
+<xs:element name="Packagingmaterial" type="xs:string"/>
+<xs:element name="Storagebin" type="xs:string"/>
+<xs:element name="Unitofmeasuredimension" type="xs:string"/>
+<xs:element name="Volumeunit" type="xs:string"/>
+<xs:element name="Weightunit" type="xs:string"/>
+ </xs:sequence>
+</xs:complexType>
+</xs:element>
+ </xs:sequence>
+</xs:complexType>
+</xs:element>
+ </xs:sequence>
+</xs:complexType>
+</xs:element>
+ <xs:element name="customField" type="xs:string"/>
+ </xs:sequence>
+</xs:complexType>
+</xs:element>
+ <xs:complexType name=" float"></xs:complexType>
+ <xs:complexType name=" string"></xs:complexType>
+ <xs:complexType name=" Date"></xs:complexType>
+</xs:schema>

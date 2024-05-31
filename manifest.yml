@@ -1,0 +1,11 @@
+---
+applications:
+  - name: DynamicJavaClassesUsingXJC
+    random-route: true
+    path: ./target/DynamicJavaClasses-0.0.1-SNAPSHOT.jar
+    memory: 1024M
+    buildpacks:
+      - sap_java_buildpack
+    env:
+      TARGET_RUNTIME: TOMCAT
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 17.+ } }'
