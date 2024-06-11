@@ -5,7 +5,6 @@ applications:
     path: ./target/DynamicJavaClasses-0.0.1-SNAPSHOT.jar
     memory: 1024M
     buildpacks:
-      - sap_java_buildpack
+      - https://github.com/cloudfoundry/java-buildpack.git#v4.65.0
     env:
-      TARGET_RUNTIME: TOMCAT
       JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 17.+ } }'

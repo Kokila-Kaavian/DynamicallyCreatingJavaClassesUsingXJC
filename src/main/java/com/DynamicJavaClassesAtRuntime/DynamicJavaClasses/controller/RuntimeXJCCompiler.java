@@ -44,7 +44,6 @@ public class RuntimeXJCCompiler {
 
       // Load specific class by name
       Class<?> FormClass = classLoader.loadClassFromFile("com.DynamicJavaClassesAtRuntime.DynamicJavaClasses.generated.Form");
-
       Method[] methods = FormClass.getMethods();
       System.out.println(Arrays.stream(methods).toList() + "methods");
 
@@ -54,7 +53,7 @@ public class RuntimeXJCCompiler {
       }
 
     }catch(Exception e){
-      System.out.println(e.getMessage());
+      System.out.println(e + " " + "error");
       return e.getMessage();
     }
     return "Success";
