@@ -38,19 +38,19 @@ public class RuntimeXJCCompiler {
       // Using JAVA compiler, compile the generated source file and get .class files
       compileGeneratedClasses.CompileGeneratesClassesUsingCompilerAPI();
 
-      // Load the compiled java classes using custom loader
-      URL[] urls = {new File("target/generated-sources/xjc").toURI().toURL()};
-      DynamicClassLoader classLoader = new DynamicClassLoader(urls, Main.class.getClassLoader());
-
-      // Load specific class by name
-      Class<?> FormClass = classLoader.loadClassFromFile("com.DynamicJavaClassesAtRuntime.DynamicJavaClasses.generated.Form");
-      Method[] methods = FormClass.getMethods();
-      System.out.println(Arrays.stream(methods).toList() + "methods");
-
-      for (Method method : methods){
-        System.out.println("Method name" + method + method.getName());
-        System.out.println("Method return type" + method.getReturnType() + method.getParameterCount());
-      }
+//      // Load the compiled java classes using custom loader
+//      URL[] urls = {new File("target/generated-sources/xjc").toURI().toURL()};
+//      DynamicClassLoader classLoader = new DynamicClassLoader(urls, Main.class.getClassLoader());
+//
+//      // Load specific class by name
+//      Class<?> FormClass = classLoader.loadClassFromFile("com.DynamicJavaClassesAtRuntime.DynamicJavaClasses.generated.Form");
+//      Method[] methods = FormClass.getMethods();
+//      System.out.println(Arrays.stream(methods).toList() + "methods");
+//
+//      for (Method method : methods){
+//        System.out.println("Method name" + method + method.getName());
+//        System.out.println("Method return type" + method.getReturnType() + method.getParameterCount());
+//      }
 
     }catch(Exception e){
       System.out.println(e + " " + "error");

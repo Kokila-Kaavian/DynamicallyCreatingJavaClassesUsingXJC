@@ -53,8 +53,8 @@ public class CompileGeneratedClasses {
     }
 
     public void CompileGeneratesClassesUsingCompilerAPI() throws Exception{
-        String sourceDir = "src/main/java/com\\DynamicJavaClassesAtRuntime\\DynamicJavaClasses\\generated\\";
-        String outputDir = "target/generated-sources/xjc";
+        String sourceDir = "target/generated-sources/com\\DynamicJavaClassesAtRuntime\\DynamicJavaClasses\\generated\\";
+        String outputDir = "target/classes";
 
         List<String> files = new ArrayList<>();
         collectJavaFiles(new File(sourceDir), files);
@@ -63,18 +63,35 @@ public class CompileGeneratedClasses {
             throw new Exception("Files are empty");
         }
 
+        System.out.println(System.getProperty("java.home"));
+
+
         for (String file : files) {
-            System.out.println(file + " CompilingFile");
+//            System.out.println(file + " CompilingFile");
+
+            File ouDir = new File(outputDir);
 
             String[] compilerOption = new String[]{
-                    "-d", outputDir,
+                    "-classpath", System.getProperty("java.class.path"),
+                    "-d", ouDir.getAbsolutePath(),
+                    "-source", "1.8",
+                    "-target", "1.8",
                     file
             };
+
+            if (!ouDir.exists()) {
+                System.out.println("Need to create");
+                ouDir.mkdirs();
+            }else {
+                System.out.println("Exists");
+            }
 
             StringWriter writer = new StringWriter();
             PrintWriter out = new PrintWriter(writer);
 
-            BatchCompiler.compile(compilerOption, out, out, null);
+            Boolean result = BatchCompiler.compile(compilerOption, out, out, null);
+            System.out.println(result + " " + "result");
+            System.out.println(writer.toString());
         }
 
     }

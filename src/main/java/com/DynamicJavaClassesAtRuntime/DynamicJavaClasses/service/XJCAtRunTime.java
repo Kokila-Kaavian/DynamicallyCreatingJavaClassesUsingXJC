@@ -20,7 +20,7 @@ import java.nio.file.Paths;
 public class XJCAtRunTime {
 
   public void generateClassesFromXSD() throws Exception{
-    String outputPath = "src/main/java/";
+    String outputPath = "target/generated-sources/";
     String packageName = "com.DynamicJavaClassesAtRuntime.DynamicJavaClasses.generated";
 
     // Get the source Schema File Path (XSD)
