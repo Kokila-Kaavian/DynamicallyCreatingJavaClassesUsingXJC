@@ -36,13 +36,13 @@ public class RuntimeXJCCompiler {
       xjcAtRunTime.generateClassesFromXSD();
 
       // Using JAVA compiler, compile the generated source file and get .class files
-      compileGeneratedClasses.CompileGeneratesClassesUsingCompilerAPI();
+      return  compileGeneratedClasses.CompileGeneratesClassesUsingCompilerAPI();
 
 //      // Load the compiled java classes using custom loader
-//      URL[] urls = {new File("target/generated-sources/xjc").toURI().toURL()};
+//      URL[] urls = {new File("target/generated-sources/com/DynamicJavaClassesAtRuntime/DynamicJavaClasses/generated/").toURI().toURL()};
 //      DynamicClassLoader classLoader = new DynamicClassLoader(urls, Main.class.getClassLoader());
-//
-//      // Load specific class by name
+
+      // Load specific class by name
 //      Class<?> FormClass = classLoader.loadClassFromFile("com.DynamicJavaClassesAtRuntime.DynamicJavaClasses.generated.Form");
 //      Method[] methods = FormClass.getMethods();
 //      System.out.println(Arrays.stream(methods).toList() + "methods");
@@ -56,6 +56,6 @@ public class RuntimeXJCCompiler {
       System.out.println(e + " " + "error");
       return e.getMessage();
     }
-    return "Success";
+//    return "Success";
   };
 }
