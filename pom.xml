@@ -8,14 +8,17 @@
 		<version>3.2.7-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+	
 	<groupId>com.DynamicJavaClassesAtRuntime</groupId>
 	<artifactId>DynamicJavaClasses</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>DynamicJavaClasses</name>
 	<description>Generated java classes at runtime using XJC </description>
+	
 	<properties>
 		<java.version>17</java.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -50,12 +53,6 @@
 			<version>2.3.1</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.eclipse.jdt.core.compiler</groupId>
-			<artifactId>ecj</artifactId>
-			<version>4.6.1</version>
-		</dependency>
-
 		<!-- Janino is a super-small, super-fast Java compiler. -->
 		<dependency>
 			<groupId>org.codehaus.janino</groupId>
@@ -87,25 +84,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	<repositories>
-		<repository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-		</pluginRepository>
-	</pluginRepositories>
 
 </project>

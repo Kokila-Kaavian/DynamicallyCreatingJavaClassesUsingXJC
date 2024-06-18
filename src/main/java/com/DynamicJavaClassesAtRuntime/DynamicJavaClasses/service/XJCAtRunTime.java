@@ -1,7 +1,6 @@
 package com.DynamicJavaClassesAtRuntime.DynamicJavaClasses.service;
 
 import com.sun.codemodel.JCodeModel;
-import com.sun.tools.xjc.Options;
 import com.sun.tools.xjc.api.ErrorListener;
 import com.sun.tools.xjc.api.S2JJAXBModel;
 import com.sun.tools.xjc.api.SchemaCompiler;
@@ -12,8 +11,6 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXParseException;
 
 import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 // Using XJC to generate java source file for the given XSD
 @Service
@@ -26,13 +23,13 @@ public class XJCAtRunTime {
     // Get the source Schema File Path (XSD)
     File file = ResourceUtils.getFile("classpath:XSD/Loading-List.xsd");
 
-    // Initialize XJC schema-compilers
+    // Initialize XJC schema-compiler
     SchemaCompiler sc = XJC.createSchemaCompiler();
 
     // Set the output packageName
     sc.forcePackageName(packageName);
 
-    // Set the source schema which going to parse and change to class
+    // Set the source schema(XSD) which going to parse and change to class
     InputSource inputSource = new InputSource(file.toURI().toString());
     sc.parseSchema(inputSource);
 
@@ -49,15 +46,11 @@ public class XJCAtRunTime {
     // Checks the output directory is exist
     File outputDir = new File(outputPath);
     if (!outputDir.exists()){
-      System.out.println("There is no directory 1");
+      System.out.println("There is no directory exist");
       if (!outputDir.mkdirs()){
-        System.out.println("There is no directory");
+        System.out.println("Couldn't create directory");
       }
     }
-
-    // Set the output directory path
-    Options options = new Options();
-    options.targetDir = outputDir;
 
     JCodeModel codeModel = model.generateCode(new com.sun.tools.xjc.Plugin[0], new ErrorListener() {
       @Override

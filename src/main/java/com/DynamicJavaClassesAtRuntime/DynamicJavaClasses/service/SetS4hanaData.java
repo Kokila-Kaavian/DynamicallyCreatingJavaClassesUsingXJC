@@ -1,35 +1,31 @@
 package com.DynamicJavaClassesAtRuntime.DynamicJavaClasses.service;
 
-import org.codehaus.janino.SimpleCompiler;
-import org.springframework.stereotype.Service;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Marshaller;
-import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Arrays;
+
+import org.codehaus.janino.SimpleCompiler;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class SetS4hanaData {
 
+  @Autowired
+  ConvertXML convertXML;
+
   public String insertS4hanaData(SimpleCompiler compiler, Class<?> formClass) throws Exception{
-    String formClassStr = "FORM_CLASS";
+
+    // Creating the instance for form class
     Object formInstance = getInstance(formClass);
 
     Result result = getResult(compiler);
 
-//
-//          Method[] methods = result.deliveryHdrNodeClass().getMethods();
-////      System.out.println(Arrays.stream(methods).toList() + "methods");
-//
-//      for (Method method : methods){
-//        System.out.println("Method name  :" + " " + method + method.getName());
-////        System.out.println("Method return type  :" + " " + method.getReturnType() + method.getParameterCount());
-//      }
+         Method[] methods = result.deliveryHdrNodeClass().getMethods();
 
-
-
+     for (Method method : methods){
+       System.out.println("Method name  :" + " " + method.getName());
+       System.out.println("Method return type  :" + " " + method.getReturnType());
+     }
 
 
     // Set DeliveryHdrNode instance on Form using reflection
@@ -41,10 +37,10 @@ public class SetS4hanaData {
     Object deliveryItemInstance = createInstance(compiler, "DeliveryItem");
 
     Method setHandlingUnitMethod = result.deliveryHdrNodeClass().getMethod("setHandlingUnit", handlingUnitInstance.getClass());
-    setHandlingUnitMethod.invoke(result.deliveryHdrNodeInstance(), handlingUnitInstance);
+    setHandlingUnitMethod.invoke(result.deliveryHdrNodeInstance, handlingUnitInstance);
 
     Method setDeliveryItemMethod = result.deliveryHdrNodeClass().getMethod("setDeliveryItem", deliveryItemInstance.getClass());
-    setDeliveryItemMethod.invoke(result.deliveryHdrNodeInstance(), deliveryItemInstance);
+    setDeliveryItemMethod.invoke(result.deliveryHdrNodeInstance, deliveryItemInstance);
 
     // Set other properties on DeliveryHdrNode
     Method setDeliveryheadergrossweightMethod = result.deliveryHdrNodeClass().getMethod("setDeliveryheadergrossweight", float.class);
@@ -58,7 +54,8 @@ public class SetS4hanaData {
     float grossVolume = 15.17F;
     setDeliveryheadergrossvolumeMethod.invoke(result.deliveryHdrNodeInstance(), grossVolume);
 
-    return convertIntoXML(formInstance, formClass);
+    // Generate the XML
+    return convertXML.convertIntoXML(formInstance, formClass);
 
   }
 
@@ -66,8 +63,7 @@ public class SetS4hanaData {
     Class<?> deliveryHdrNodeClass = getCustomClass(compiler);
     // Creating instance of DeliveryHdrNode
     Object deliveryHdrNodeInstance = deliveryHdrNodeClass.getDeclaredConstructor().newInstance();
-    Result result = new Result(deliveryHdrNodeClass, deliveryHdrNodeInstance);
-    return result;
+    return new Result(deliveryHdrNodeClass, deliveryHdrNodeInstance);
   }
 
   private record Result(Class<?> deliveryHdrNodeClass, Object deliveryHdrNodeInstance) {
@@ -80,40 +76,15 @@ public class SetS4hanaData {
   }
 
   private static Object getInstance(Class<?> formClass) throws InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-    Object myInstance;
-//    if (formClassStr.equals("FORM_CLASS")) {
-      // Creating instance of Form
-      myInstance = formClass.getDeclaredConstructor().newInstance();
-
-      return myInstance;
+      return formClass.getDeclaredConstructor().newInstance();
   }
 
+  // Create instance for child node
   public Object createInstance(SimpleCompiler compiler, String className) throws Exception{
     // Load the class
     Class<?> loadedClass = compiler.getClassLoader().loadClass("com.DynamicJavaClassesAtRuntime.DynamicJavaClasses.generated.Form$DeliveryHdrNode$" + className);
     // Creating instance of loadedClass
-
-    Method[] methods = loadedClass.getMethods();
-//      System.out.println(Arrays.stream(methods).toList() + "methods");
-
-    for (Method method : methods){
-      System.out.println("Method name  :" + " " + method + method.getName());
-//        System.out.println("Method return type  :" + " " + method.getReturnType() + method.getParameterCount());
-    }
-
     return loadedClass.getDeclaredConstructor().newInstance();
   }
 
-  public String convertIntoXML(Object formInstance, Class<?> formClass) throws Exception{
-    StringWriter writer = new StringWriter();
-
-    JAXBContext context = JAXBContext.newInstance(formClass);
-    Marshaller marshaller = context.createMarshaller();
-    marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-    marshaller.marshal(formInstance, writer);
-
-    String xml = writer.toString();
-    System.out.println(xml);
-    return xml;
-  }
 }
