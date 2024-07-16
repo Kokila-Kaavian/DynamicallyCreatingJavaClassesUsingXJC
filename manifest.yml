@@ -1,0 +1,10 @@
+---
+applications:
+  - name: DynamicJavaClassesUsingXJC
+    random-route: true
+    path: ./target/DynamicJavaClasses-0.0.1-SNAPSHOT.jar
+    memory: 1024M
+    buildpacks:
+      - https://github.com/cloudfoundry/java-buildpack.git#v4.65.0
+    env:
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 17.+ } }'

@@ -1,0 +1,187 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+ <xs:element name="Form">
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element name="DeliveryHdrNode">
+     <xs:complexType>
+      <xs:sequence>
+       <xs:element type="xs:string" name="Creationdatetime"/>
+       <xs:element type="xs:string" name="Deliverycategory"/>
+       <xs:element type="xs:string" name="Deliverydatadeterminationind"/>
+       <xs:element type="xs:string" name="Deliverydatetimecategory"/>
+       <xs:element type="xs:string" name="Deliverydatetimetype"/>
+       <xs:element type="xs:string" name="Deliverydocumentcategory"/>
+       <xs:element type="xs:float" name="Deliveryheadergrossvolume"/>
+       <xs:element type="xs:string" name="Deliveryheadergrossvolumeunit"/>
+       <xs:element type="xs:float" name="Deliveryheadergrossweight"/>
+       <xs:element type="xs:string" name="Deliveryheadergrossweightunit"/>
+       <xs:element type="xs:float" name="Deliveryheadernetvolume"/>
+       <xs:element type="xs:string" name="Deliveryheadernetvolumeunit"/>
+       <xs:element type="xs:float" name="Deliveryheadernetweight"/>
+       <xs:element type="xs:string" name="Deliveryheadernetweightunit"/>
+       <xs:element type="xs:string" name="Deliveryorderitemuuid"/>
+       <xs:element type="xs:string" name="Deliveryrelatedenddatetime"/>
+       <xs:element type="xs:string" name="Deliveryschedulelineuuid"/>
+       <xs:element type="xs:string" name="Deliverytype"/>
+       <xs:element type="xs:string" name="Meansoftransport"/>
+       <xs:element type="xs:string" name="Outbounddeliveryorder"/>
+       <xs:element type="xs:string" name="Outbounddeliveryorderuuid"/>
+       <xs:element type="xs:string" name="Route"/>
+       <xs:element type="xs:string" name="Shiptoparty"/>
+       <xs:element type="xs:string" name="Shiptopartyaddressline1text"/>
+       <xs:element type="xs:string" name="Shiptopartyaddressline2text"/>
+       <xs:element type="xs:string" name="Shiptopartyaddressline3text"/>
+       <xs:element type="xs:string" name="Shiptopartyaddressline4text"/>
+       <xs:element type="xs:string" name="Shiptopartyname"/>
+       <xs:element type="xs:string" name="Timezonename"/>
+       <xs:element type="xs:string" name="Warehouselocationuuid"/>
+       <xs:element type="xs:string" name="Warehousetimezone"/>
+       <xs:element type="xs:string" name="Wrhstmzncreationdate"/>
+       <xs:element type="xs:string" name="Wrhstmzncreationdatetime"/>
+       <xs:element type="xs:time" name="Wrhstmzncreationtime"/>
+       <xs:element type="xs:string" name="Wrhstmznlistprintdate"/>
+       <xs:element type="xs:time" name="Wrhstmznlistprinttime"/>
+       <xs:element type="xs:string" name="Wrhstmznplnddelivstartdate"/>
+       <xs:element type="xs:time" name="Wrhstmznplnddelivstarttime"/>
+       <xs:element name="DeliveryItem">
+        <xs:complexType>
+         <xs:sequence>
+          <xs:element name="DeliveryItemNode" maxOccurs="unbounded" minOccurs="0">
+           <xs:complexType>
+            <xs:sequence>
+             <xs:element type="xs:string" name="Activityarea"/>
+             <xs:element type="xs:string" name="Completionstatus"/>
+             <xs:element type="xs:string" name="Deliverycategory"/>
+             <xs:element type="xs:float" name="Deliveryitemgrossvolume"/>
+             <xs:element type="xs:string" name="Deliveryitemgrossvolumeunit"/>
+             <xs:element type="xs:float" name="Deliveryitemgrossweight"/>
+             <xs:element type="xs:string" name="Deliveryitemgrossweightunit"/>
+             <xs:element type="xs:string" name="Entitledtodisposeparty"/>
+             <xs:element type="xs:string" name="Goodsissuestatus"/>
+             <xs:element type="xs:string" name="Itemwaveassignmentisincomplete"/>
+             <xs:element type="xs:string" name="Language"/>
+             <xs:element type="xs:string" name="Meansoftransporttype"/>
+             <xs:element type="xs:string" name="Outbdeliveryorderitemcategory"/>
+             <xs:element type="xs:string" name="Outbounddeliveryorder"/>
+             <xs:element type="xs:string" name="Outbounddeliveryorderitem"/>
+             <xs:element type="xs:string" name="Outbounddeliveryorderitemtype"/>
+             <xs:element type="xs:string" name="Outbounddeliveryorderitemuuid"/>
+             <xs:element type="xs:string" name="Outbounddeliveryorderuuid"/>
+             <xs:element type="xs:string" name="Plannedpickingstatus"/>
+             <xs:element type="xs:string" name="Plndgoodsissuestartutcdatetime"/>
+             <xs:element type="xs:string" name="Product"/>
+             <xs:element type="xs:string" name="Productbatch"/>
+             <xs:element type="xs:string" name="Productdescription"/>
+             <xs:element type="xs:float" name="Productquantity"/>
+             <xs:element type="xs:string" name="PurchaseOrder"/>
+             <xs:element type="xs:string" name="PurchaseOrderByCustomer"/>
+             <xs:element type="xs:string" name="PurchaseOrderItem"/>
+             <xs:element type="xs:string" name="Quantityunit"/>
+             <xs:element type="xs:string" name="Routeschedule"/>
+             <xs:element type="xs:string" name="SalesOrder"/>
+             <xs:element type="xs:string" name="Shippingcondition"/>
+             <xs:element type="xs:string" name="Stagingarea"/>
+             <xs:element type="xs:string" name="Stagingareagroup"/>
+             <xs:element type="xs:string" name="Storagebin"/>
+             <xs:element type="xs:string" name="Storagesection"/>
+             <xs:element type="xs:string" name="Storagetype"/>
+             <xs:element type="xs:string" name="Warehouse"/>
+             <xs:element type="xs:string" name="Warehousedoor"/>
+             <xs:element type="xs:string" name="Warehouseprocesstype"/>
+             <xs:element type="xs:string" name="Wrhstimezoneactualgidate"/>
+             <xs:element type="xs:string" name="Wrhstimezoneactualgitime"/>
+             <xs:element type="xs:string" name="Wrhstimezoneplannedgidate"/>
+             <xs:element type="xs:string" name="Wrhstimezoneplannedgitime"/>
+             <xs:element type="xs:string" name="Wrhstmznactlgistrtdatetime"/>
+             <xs:element type="xs:string" name="Wrhstmznplndgistrtdatetime"/>
+            </xs:sequence>
+           </xs:complexType>
+          </xs:element>
+         </xs:sequence>
+        </xs:complexType>
+       </xs:element>
+       <xs:element name="HandlingUnit">
+        <xs:complexType>
+         <xs:sequence>
+          <xs:element name="HandlingUnitNode" maxOccurs="unbounded" minOccurs="0">
+           <xs:complexType>
+            <xs:sequence>
+             <xs:element type="xs:string" name="Consolidationgroup"/>
+             <xs:element type="xs:string" name="Createdbyuser"/>
+             <xs:element type="xs:string" name="Creationdatetime"/>
+             <xs:element type="xs:string" name="Entitledtodisposeparty"/>
+             <xs:element type="xs:string" name="Externalstorageprocessstep"/>
+             <xs:element type="xs:float" name="Grossvolume"/>
+             <xs:element type="xs:float" name="Grossweight"/>
+             <xs:element type="xs:string" name="Handlingunitbottomind"/>
+             <xs:element type="xs:string" name="Handlingunitcapacitytolerance"/>
+             <xs:element type="xs:string" name="Handlingunitcontentind"/>
+             <xs:element type="xs:string" name="Handlingunitdefectcode"/>
+             <xs:element type="xs:string" name="Handlingunitgrosscapacity"/>
+             <xs:element type="xs:string" name="Handlingunithasavailqty"/>
+             <xs:element type="xs:float" name="Handlingunitheight"/>
+             <xs:element type="xs:string" name="Handlingunitindicator"/>
+             <xs:element type="xs:string" name="Handlingunitisclosed"/>
+             <xs:element type="xs:float" name="Handlingunitlength"/>
+             <xs:element type="xs:string" name="Handlingunitlogicalposition"/>
+             <xs:element type="xs:string" name="Handlingunitmaxdimensionunit"/>
+             <xs:element type="xs:string" name="Handlingunitmaxheight"/>
+             <xs:element type="xs:string" name="Handlingunitmaxlength"/>
+             <xs:element type="xs:string" name="Handlingunitmaxvolume"/>
+             <xs:element type="xs:string" name="Handlingunitmaxweight"/>
+             <xs:element type="xs:string" name="Handlingunitmaxwidth"/>
+             <xs:element type="xs:string" name="Handlingunitnetcapacity"/>
+             <xs:element type="xs:string" name="Handlingunitnetvolume"/>
+             <xs:element type="xs:string" name="Handlingunitnumber"/>
+             <xs:element type="xs:string" name="Handlingunitobjrefind"/>
+             <xs:element type="xs:string" name="Handlingunitopentaskind"/>
+             <xs:element type="xs:string" name="Handlingunitpackinggroup"/>
+             <xs:element type="xs:string" name="Handlingunitstatus"/>
+             <xs:element type="xs:string" name="Handlingunittarecapacity"/>
+             <xs:element type="xs:string" name="Handlingunittarevolume"/>
+             <xs:element type="xs:string" name="Handlingunittarevolumeunit"/>
+             <xs:element type="xs:string" name="Handlingunittareweight"/>
+             <xs:element type="xs:string" name="Handlingunittareweightunit"/>
+             <xs:element type="xs:string" name="Handlingunittoplevelind"/>
+             <xs:element type="xs:string" name="Handlingunittype"/>
+             <xs:element type="xs:string" name="Handlingunituuid"/>
+             <xs:element type="xs:string" name="Handlingunitvolumetolerance"/>
+             <xs:element type="xs:string" name="Handlingunitweighttolerance"/>
+             <xs:element type="xs:float" name="Handlingunitwidth"/>
+             <xs:element type="xs:string" name="Hasvariabletareweight"/>
+             <xs:element type="xs:string" name="Hazardoussubstanceindicator"/>
+             <xs:element type="xs:string" name="Lastchangedatetime"/>
+             <xs:element type="xs:string" name="Lastchangedbyuser"/>
+             <xs:element type="xs:string" name="Maximumcapacity"/>
+             <xs:element type="xs:string" name="Netweight"/>
+             <xs:element type="xs:string" name="OutboundDeliveryOrder"/>
+             <xs:element type="xs:string" name="Outbounddeliveryorderuuid"/>
+             <xs:element type="xs:string" name="Packagingmaterial"/>
+             <xs:element type="xs:string" name="Packagingmaterialtype"/>
+             <xs:element type="xs:string" name="Packagingmaterialuuid"/>
+             <xs:element type="xs:string" name="Packagingspecificationlevel"/>
+             <xs:element type="xs:string" name="Processstepcompletedind"/>
+             <xs:element type="xs:string" name="Statusprofile"/>
+             <xs:element type="xs:string" name="Storagebin"/>
+             <xs:element type="xs:string" name="Storageprocess"/>
+             <xs:element type="xs:string" name="Storagesection"/>
+             <xs:element type="xs:string" name="Storagetype"/>
+             <xs:element type="xs:string" name="Unitofmeasuredimension"/>
+             <xs:element type="xs:string" name="Volumeunit"/>
+             <xs:element type="xs:string" name="Warehouse"/>
+             <xs:element type="xs:string" name="Warehouseordercreationrule"/>
+             <xs:element type="xs:string" name="Weightunit"/>
+             <xs:element type="xs:string" name="Workloadidentification"/>
+            </xs:sequence>
+           </xs:complexType>
+          </xs:element>
+         </xs:sequence>
+        </xs:complexType>
+       </xs:element>
+      </xs:sequence>
+     </xs:complexType>
+    </xs:element>
+   </xs:sequence>
+  </xs:complexType>
+ </xs:element>
+</xs:schema>
